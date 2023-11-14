@@ -13,7 +13,8 @@ services:
     networks:
       - api-network
     depends_on:
-      - mysql
+    - mysql
+    restart: on-failure
   mysql:
     image: mysql:0.1.0
     ports:

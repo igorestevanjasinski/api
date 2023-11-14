@@ -1,15 +1,15 @@
 version: '3'
 services:
   api:
-    image: vollmed-api:0.1.0
+    image: your_image_api
     environment:
       OTEL_RESOURCE_ATTRIBUTES: service.name=api
       OTEL_TRACES_EXPORTER: otlp
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
       OTEL_EXPORTER_OTLP_PROTOCOL: http/protobuf
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/vollmed_api
-      SPRING_DATASOURCE_USERNAME: user
-      SPRING_DATASOURCE_PASSWORD: senha
+      SPRING_DATASOURCE_USERNAME: igor
+      SPRING_DATASOURCE_PASSWORD: 15269583
     ports:
       - "8080:8080"
     links:
@@ -18,15 +18,16 @@ services:
       - api-network
     depends_on:
       - mysql
+    restart: on-failure
 
   mysql:
-    image: mysql:0.1.0
+    image: your_image_sql
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: senha_root
-      MYSQL_USER: user
-      MYSQL_PASSWORD: senha
+      MYSQL_ROOT_PASSWORD: 15269583
+      MYSQL_USER: igor
+      MYSQL_PASSWORD: 15269583
       MYSQL_DATABASE: vollmed_api
     networks:
       - api-network
