@@ -8,8 +8,8 @@ services:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
       OTEL_EXPORTER_OTLP_PROTOCOL: http/protobuf
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/vollmed_api
-      SPRING_DATASOURCE_USERNAME: igor
-      SPRING_DATASOURCE_PASSWORD: 15269583
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: senha
     ports:
       - "8080:8080"
     links:
@@ -25,9 +25,9 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: 15269583
-      MYSQL_USER: igor
-      MYSQL_PASSWORD: 15269583
+      MYSQL_ROOT_PASSWORD: root_senha
+      MYSQL_USER: user
+      MYSQL_PASSWORD: senha
       MYSQL_DATABASE: vollmed_api
     networks:
       - api-network
